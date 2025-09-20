@@ -24,7 +24,19 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h5>Мои задачи</h5>
-                        <p>Здесь будет список задач</p>
+                        <p>{{ tasks|length}}</p>
+                        {% if tasks %}
+                            <p>Есть задачи</p>
+
+                            {% for task in tasks %}
+                                <p>{{task.name}}</p>
+
+                            {% endfor %}
+                        {% else %}
+                            <p>Нет задач</p>
+                        {% endif %}
+
+
                         <ul class="list-group">
                             <li class="list-group-item">Прополоскать горло</li>
                             <li class="list-group-item">Принять таблетку</li>
