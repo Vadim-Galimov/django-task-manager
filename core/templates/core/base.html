@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>{% block title %}Task manager {% endblock %}</title>
+  {% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% block css %} {% endblock %}
+  {% block meta %} {% endblock %}
+</head>
+<body>
+{% include 'core/includes/header.html' %}
+<main class="container">
+  {% block content %}
+  {% endblock %}
+</main>
+{% include 'core/includes/footer.html' %}
+{% block javascript %} {% endblock %}
+
+</body>
+</html>
