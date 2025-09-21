@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from tasks.models import Task
+from tasks.forms import TaskCreateForm
 
 # Create your views here.
 
@@ -15,4 +16,13 @@ def all_tasks(request):
 
 def add_task(request):
 
-    return render(request, "./core/add_task.html")
+
+    if request.method == 'POST':
+        form = TaskCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('all_tasks')
+    else:
+        form = TaskCreateForm()
+
+    return render(request, "./core/add_task.html", {'form': form})

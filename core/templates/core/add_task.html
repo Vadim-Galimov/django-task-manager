@@ -3,10 +3,16 @@
 {% block title %} Добавление задачи {% endblock %}
 
 {% block content %}
+<form method="post">
+                    <h1>Добавление задачи</h1>
+    {% csrf_token %}
 
 
-                <h1>Добавление задачи</h1>
+    {{ form.as_p }}
 
+    <button>Добавить задачу</button>
+
+</form>
 
 {% endblock %}
 
