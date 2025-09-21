@@ -6,24 +6,19 @@
 
 
                 <h1>Все задачи</h1>
-                <p class="lead">Добро пожаловать! Это начальная версия моего сайта.</p>
 
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5>Режим болезни</h5>
-                        <p>Здесь будет переключатель режима болезни</p>
-                    </div>
-                </div>
+    добавить задачу
 
-                <div class="card mt-3">
-                    <div class="card-body">
+
+
                         <h5>Мои задачи</h5>
-                        <p>{{ tasks|length}}</p>
                         {% if tasks %}
                             <p>Есть задачи</p>
 
                             {% for task in tasks %}
                                 <p>{{task.name}}</p>
+                                открыть задачу
+                                удалить задачу
 
                             {% endfor %}
                         {% else %}
@@ -31,13 +26,9 @@
                         {% endif %}
 
 
-                        <ul class="list-group">
-                            <li class="list-group-item">Прополоскать горло</li>
-                            <li class="list-group-item">Принять таблетку</li>
-                            <li class="list-group-item">Отдохнуть</li>
-                        </ul>
-                    </div>
-                </div>
+
+
+
 {% endblock %}
 
 

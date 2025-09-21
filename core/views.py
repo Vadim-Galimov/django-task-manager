@@ -12,3 +12,7 @@ def all_tasks(request):
     tasks = Task.objects.all()
 
     return render(request, "./core/all_tasks.html", {'tasks': tasks})
+
+def add_task(request):
+
+    return render(request, "./core/add_task.html")
