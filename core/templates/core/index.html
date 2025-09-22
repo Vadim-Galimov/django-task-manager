@@ -25,6 +25,11 @@
                             <p>Есть задачи</p>
 
                             {% for task in tasks %}
+                                <form method="post" action="{% url 'complete_task' task.id %}">
+                                    {% csrf_token %}
+                                    <button>Выполнить задачу</button>
+                                </form>
+
                                 <p>{{task.name}}</p>
 
                             {% endfor %}

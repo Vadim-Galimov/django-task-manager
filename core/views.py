@@ -56,3 +56,12 @@ def start_new_day(request):
         )
         daily_tasks.update(is_completed=False)
         return redirect("home")
+
+
+def complete_task(request, task_id):
+    if request.method == "POST":
+        task = get_object_or_404(Task, id=task_id)
+        task.is_completed = True
+        task.save()
+        return redirect('home')
+
