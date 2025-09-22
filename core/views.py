@@ -46,3 +46,13 @@ def edit_task(request, task_id):
         form = TaskCreateForm( instance=task)
 
     return render(request, './core/edit_task.html', {'form': form, 'task': task})
+
+
+def start_new_day(request):
+    if request.method == "POST":
+        daily_tasks = Task.objects.filter(
+            is_daily = True,
+            is_active = True
+        )
+        daily_tasks.update(is_completed=False)
+        return redirect("home")

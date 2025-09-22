@@ -5,6 +5,9 @@ class Task(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название задачи")
     description = models.TextField(blank=True, verbose_name="Описание")
     is_completed = models.BooleanField(default=False, verbose_name="Выполнено")
+    is_daily = models.BooleanField(default=False, verbose_name="Ежедневное")
+    is_active = models.BooleanField(default=False, verbose_name="Активное")
+
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
 
     def __str__(self):

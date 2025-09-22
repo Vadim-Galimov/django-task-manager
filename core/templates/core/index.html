@@ -8,6 +8,11 @@
                 <h1>Мой Трекер</h1>
                 <p class="lead">Добро пожаловать! Это начальная версия моего сайта.</p>
 
+                    <form method="post" action="{% url 'start_new_day' %}">
+                        {% csrf_token %}
+                        <button>Начать новый день</button>
+
+                    </form>
 
 
                         <h5>Режим болезни</h5>
