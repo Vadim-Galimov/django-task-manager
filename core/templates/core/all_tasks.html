@@ -17,7 +17,13 @@
 
                             {% for task in tasks %}
                                 <p>{{task.name}}</p>
-                                открыть задачу
+                                    <a href=" {% url 'edit_task' task.id %}">
+                                                                    <button>Открыть задачу</button>
+                                    </a>
+
+
+
+
                                 <form method="post" action="{% url 'delete_task' task.id %}">
                                     {% csrf_token %}
                                                                     <button>Удалить задачу</button>

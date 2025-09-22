@@ -1,0 +1,25 @@
+
+{% extends 'core/base.html' %}
+{% block title %} {{ task.name }} {% endblock %}
+
+{% block content %}
+<form method="post">
+                    <h1>{{ task.name }}</h1>
+    <p>{{ task.created_at }}</p>
+    {% csrf_token %}
+    {% if form.errors %}
+        <div style="color: red;">
+            <strong>Ошибки формы:</strong>
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+
+    {{ form.as_p }}
+    <button>Сохранить</button>
+
+</form>
+
+{% endblock %}
+
+
