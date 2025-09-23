@@ -1,0 +1,30 @@
+
+{% extends 'core/base.html' %}
+{% block title %} Расписание {% endblock %}
+
+{% block content %}
+
+
+                <h1>Расписание</h1>
+
+                {% for task in tasks %}
+<p> {{task.order}} {{task.name}}</p>
+<form method="post" action="{% url 'order_up' task.id %}">
+    {% csrf_token %}
+    <button>Вверх</button>
+
+</form>
+<form method="post" action="{% url 'order_down' task.id %}">
+    {% csrf_token %}
+    <button>Вниз</button>
+
+</form>
+
+
+                {% endfor %}
+
+
+
+{% endblock %}
+
+

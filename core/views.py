@@ -65,3 +65,24 @@ def complete_task(request, task_id):
         task.save()
         return redirect('home')
 
+def schedule(request):
+    tasks = Task.objects.filter(is_daily=True).order_by('order', 'created_at')
+
+    return render(request, './core/schedule.html', {'tasks': tasks})
+    pass
+
+def order_up(request, task_id):
+    if request.method == "POST":
+        task = get_object_or_404(Task, id=task_id)
+        task.order -= 1
+        task.save()
+
+        return redirect( 'schedule')
+
+def order_down(request, task_id):
+    if request.method == "POST":
+        task = get_object_or_404(Task, id=task_id)
+        task.order += 1
+        task.save()
+
+        return redirect('schedule')

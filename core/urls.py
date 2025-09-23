@@ -10,4 +10,7 @@ urlpatterns = [
     path('edit_task/<int:task_id>', views.edit_task, name='edit_task'),
     path('start_new_day', views.start_new_day, name='start_new_day'),
     path('complete_task/<int:task_id>', views.complete_task, name='complete_task'),
+    path('schedule', views.schedule, name='schedule'),
+    path('order_up/<int:task_id>', views.order_up, name='order_up'),
+    path('order_down/<int:task_id>', views.order_down, name='order_down'),
 ]
