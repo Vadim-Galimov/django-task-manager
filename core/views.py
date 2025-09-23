@@ -5,7 +5,7 @@ from tasks.forms import TaskCreateForm
 # Create your views here.
 
 def index(request):
-    tasks = Task.objects.filter(is_completed=False)
+    tasks = Task.objects.filter(is_completed=False).order_by('order')
 
     return render(request, "./core/index.html", {'tasks': tasks})
 

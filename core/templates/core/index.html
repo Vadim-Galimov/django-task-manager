@@ -14,35 +14,30 @@
 
                     </form>
 
-
-                        <h5>Режим болезни</h5>
-                        <p>Здесь будет переключатель режима болезни</p>
-
-
                         <h5>Мои задачи</h5>
-                        <p>{{ tasks|length}}</p>
-                        {% if tasks %}
-                            <p>Есть задачи</p>
 
-                            {% for task in tasks %}
-                                <form method="post" action="{% url 'complete_task' task.id %}">
+                        {% if tasks %}
+                            <ul>
+
+                                                            {% for task in tasks %}
+                      <li><span>{{task.name}}</span>
+                                <form method="post" action="{% url 'complete_task' task.id %}" style="display: inline-block">
                                     {% csrf_token %}
                                     <button>Выполнить задачу</button>
-                                </form>
+                                </form></li>
 
-                                <p>{{task.name}}</p>
+
 
                             {% endfor %}
+
+                            </ul>
+
+
+
                         {% else %}
                             <p>Нет задач</p>
                         {% endif %}
 
-
-                        <ul class="list-group">
-                            <li class="list-group-item">Прополоскать горло</li>
-                            <li class="list-group-item">Принять таблетку</li>
-                            <li class="list-group-item">Отдохнуть</li>
-                        </ul>
 
 
 {% endblock %}
